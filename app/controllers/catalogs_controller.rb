@@ -11,6 +11,7 @@ class CatalogsController < ApplicationController
   # GET /catalogs/1
   # GET /catalogs/1.json
   def show
+    @pagetitle = 'Información Catálogo'
   end
 
   # GET /catalogs/new
@@ -21,7 +22,7 @@ class CatalogsController < ApplicationController
 
   # GET /catalogs/1/edit
   def edit
-    @pagetitle = "Edición Catálogo: #{@catalog.nombre}"
+    @pagetitle = "Edición Catálogo"
   end
 
   # POST /catalogs
@@ -45,7 +46,7 @@ class CatalogsController < ApplicationController
   def update
     respond_to do |format|
       if @catalog.update(catalog_params)
-        format.html { redirect_to @catalog, notice: 'Catalog was successfully updated.' }
+        format.html { redirect_to @catalog, notice: 'Se actualizó correctamente' }
         format.json { render :show, status: :ok, location: @catalog }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class CatalogsController < ApplicationController
   def destroy
     @catalog.destroy
     respond_to do |format|
-      format.html { redirect_to catalogs_url, notice: 'Catalog was successfully destroyed.' }
+      format.html { redirect_to catalogs_url, notice: 'Eliminado correctamente.' }
       format.json { head :no_content }
     end
   end

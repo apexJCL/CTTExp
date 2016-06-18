@@ -1,1 +1,22 @@
+.section.cyan.lighten-5
+  .row
+    .col.s12
+      %h4= @catalog.nombre
+  .row
+    .col.s12
+      %h6 Descripción: #{@catalog.desc}
+  .row
+    .col.s12
+      %h6 Fecha: #{@catalog.fecha}
+  .row
+    .col.s12
+      %h6 Tipo Cambio: #{@catalog.tipo_camb}
 
+
+  .row
+    .col.s2.offset-l10.offset-m10.offset-s10
+      %a.btn-flat.waves-effect.right{ href: catalogs_path } Volver
+
+.fixed-action-btn.fab-style
+  %a.btn-floating.btn-large.red.accent-3.waves-effect.waves-light{ href: edit_catalog_path(@catalog) }
+    %i.material-icons edit

@@ -1,6 +1,5 @@
-%p#notice= notice
+.container-fluid
 
-
-= link_to 'Edit', edit_article_path(@article)
-\|
-= link_to 'Back', articles_path
+.fixed-action-btn.fab-style
+  %a.btn-floating.btn-large.red.accent-3.waves-effect.waves-light{ href: edit_article_path(@article) }
+    %i.material-icons edit

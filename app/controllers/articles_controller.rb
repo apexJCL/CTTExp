@@ -11,15 +11,18 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    @pagetitle = 'Ver Artículo'
   end
 
   # GET /articles/new
   def new
+    @pagetitle = 'Nuevo Artículo'
     @article = Article.new
   end
 
   # GET /articles/1/edit
   def edit
+    @pagetitle = 'Editar Artículo'
   end
 
   # POST /articles
@@ -70,6 +73,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.fetch(:article, {})
+      params.require(:article).permit(:nombre, :desc_art, :desc_art1, :desc_art2, :arts_disp, :prcio_unit, :tipo_art, :moneda_art)
     end
 end

@@ -5,6 +5,31 @@
       %ul
         - @article.errors.full_messages.each do |msg|
           %li= msg
+  .row
+    .col.s12.m6.input-field
+      =f.label :nombre, 'Nombre del artículo'
+      =f.text_field :nombre
+    .col.s12.m2.input-field
+      =f.label :arts_disp, 'Artículos disponibles'
+      =f.number_field :arts_disp, :min => '0'
+    .col.s12.m2.input-field
+      =f.label :prcio_unit, 'Precio Unitario'
+      =f.number_field :prcio_unit
+    .col.s12.m2.input-field
+      =f.label :moneda_art, 'Moneda'
+      =f.text_field :moneda_art
+  .row
+    .col.s12.input-field
+      =f.label :desc_art, 'Descripción principal'
+      =f.text_area :desc_art, class: 'materialize-textarea'
+  .row
+    .col.s12.m6.input-field
+      =f.label :desc_art1, 'Descripción secundaria'
+      =f.text_area :desc_art1, class: 'materialize-textarea'
+    .col.s12.m6.input-field
+      =f.label :desc_art2, 'Descripción terciaria'
+      =f.text_area :desc_art2, class: 'materialize-textarea'
 
   .actions
-    = f.submit 'Save'
+    %a.btn.red.waves-effect.waves-light{ href: articles_path } Cancelar
+    = f.submit 'Guardar', class: 'btn-flat waves-effect waves-green'

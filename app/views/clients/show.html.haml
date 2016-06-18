@@ -1,4 +1,20 @@
-.row.right
-  .col.s12
-    %a.waves-effect.waves-light.btn{ href: clients_path }
-      Volver
+.section.cyan.lighten-5
+  .container
+    .row
+      .col.s12
+        =image_tag 'default_avatar.png', class: 'circle responsive-img z-depth-1-half'
+      .col.s12
+        %h5.roboto-light= @client.nombre_completo
+      .col.s12
+        %h6 RFC: #{@client.rfc}
+      .col.s12
+        %h6 Domicilio: #{@client.domicilio}
+    .row
+      .col.s2.offset-l10.offset-m10.offset-s10
+        %a.waves-effect.waves-light.btn{ href: clients_path }
+          Volver
+
+
+.fixed-action-btn.fab-style
+  %a.btn-floating.btn-large.red.accent-3.waves-effect.waves-light{ href: edit_client_path(@client) }
+    %i.material-icons edit

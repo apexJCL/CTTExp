@@ -17,6 +17,11 @@
       .input-field
         =f.label :rfc, 'RFC'
         =f.text_field :rfc, class: 'validate'
+  .row
+    .col.s12.m6
+      .input-field
+        =f.label :domicilio, 'Domicilio'
+        =f.text_field :domicilio, class: 'validate'
   - if @client.errors.any?
     #error_explanation
       %h2
