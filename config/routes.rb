@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
+  resources :existences
+  resources :catalogs
+  resources :articles
   devise_for :users
 
   root to: 'home#index'
 
-  as :users => [:authenticated] do
-    get 'dashboard'  => 'home#dashboard'
+  as :user do
+    get 'signin',     to: 'devise/sessions#new'
+    get 'signup',     to: 'devise/registrations#new'
+    get 'logout',     to: 'devise/sessions#destroy'
+    get 'dashboard',  to: 'home#dashboard'
   end
 
   resources :clients

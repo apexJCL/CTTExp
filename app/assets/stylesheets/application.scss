@@ -9,20 +9,70 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
+ */
+@import "materialize/components/prefixer";
+@import "materialize/components/color";
+$primary-color: color("blue-grey", "darken-1") !default;
+$secondary-color: color("cyan", "base") !default;
+@import 'materialize';
+/*
  *= require_tree .
  *= require_self
  */
-@import "materialize/components/color";
-$primary-color: color("blue-grey", "lighten-1") !default;
-@import 'materialize';
-
-header, main, footer {
+.offset {
   padding-left: 240px;
 }
 
 @media only screen and (max-width: 992px) {
-  header, main, footer {
+  .offset {
     padding-left: 0;
+  }
+}
+
+.responsive-img-custom {
+  display: block;
+  max-width: 128px;
+  margin: 0 auto;
+}
+
+.menu-text {
+  font-size: 0.8em;
+}
+
+.nav-title {
+  font-size: 2em;
+  padding-left: 20px;
+}
+
+.container-fluid {
+  margin: 5px 5%;
+}
+
+.small-icon {
+  font-size: 0.6em;
+}
+
+.big-icon {
+  font-size: 4em;
+}
+
+.enormous-icon {
+  font-size: 6em;
+}
+
+.material-icons.md-light.md-inactive {
+  color: rgba(255, 255, 255, 0.3);
+}
+.fab-style {
+  top: 20px;
+  right: 20px;
+  left: inherit;
+  bottom: inherit;
+
+  @media only screen and (max-width: 992px){
+    top: inherit;
+    left: inherit;
+    bottom: 45px;
+    right: 24px;
   }
 }

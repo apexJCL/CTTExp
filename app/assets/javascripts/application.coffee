@@ -10,9 +10,22 @@
 # Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 # about supported directives.
 #
-#= require jquery
+#= require jquery2
+#= require jquery.turbolinks
 #= require jquery_ujs
-#= require turbolinks
 #= require materialize-sprockets
 #= require materialize/extras/nouislider
+#= require turbolinks
 #= require_tree .
+
+ready = ->
+  $('.collapsible').collapsible
+    accordion: true
+  $('.button-collapse').sideNav
+    menuWidth: 240
+    edge: 'left'
+    closeOnClick: true
+  Waves.displayEffect()
+
+$(document).ready ready
+$(document).on 'turbolinks:load', ready

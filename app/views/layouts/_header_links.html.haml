@@ -1,0 +1,39 @@
+%li.logo
+  =image_tag 'logos/CTT.png', class: 'responsive-img-custom'
+
+%ul.collapsible{"data-collapsible" => "accordion"}
+  %li.center.light-blue.accent-1.z-depth-1
+    .collapsible-header.waves-effect.waves-light
+      %span.menu-text.bold #{current_user.email}
+    .collapsible-body
+      %ul
+        %li.waves-effect-waves-red
+          %a.collapsible-header{ href: logout_path}
+            %i.material-icons exit_to_app
+            %span.menu-text Cerrar Sesión
+  %li
+    %a.menu-link.collapsible-header.menu-text{ href: root_path }
+      %i.material-icons dashboard
+      %span.menu-text Dashboard
+  %li
+    .collapsible-header.waves-effect.waves-light
+      %i.material-icons account_balance
+      %span.menu-text Almacén
+    .collapsible-body
+      %ul
+        %li.waves-effect-waves-red
+          %a.collapsible-header{ href: catalogs_path}
+            %i.material-icons class
+            %span.menu-text Catálogos
+  %li
+    %a.menu-link.collapsible-header.menu-text{ href: clients_path }
+      %i.material-icons face
+      %span.menu-text Clientes
+  %li
+    %a.menu-link.collapsible-header.menu-text{ href: '#' }
+      %i.material-icons rss_feed
+      %span.menu-text Noticias
+  %li
+    %a.menu-link.collapsible-header.menu-text{ href: 'users'}
+      %i.material-icons person
+      %span.menu-text Usuarios

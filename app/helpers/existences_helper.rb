@@ -1,0 +1,2 @@
+module ExistencesHelper
+end

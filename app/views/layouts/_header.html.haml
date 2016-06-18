@@ -1,10 +1,11 @@
-%header
-  .navbar-fixed
-    %nav
-      .nav-wrapper
-        %ul#slide-out.side-nav.fixed
-          %li
-            %a.waves-effect.waves-teal{ href: '#'}
-              Dashboard
-        %a.button-collapse{ href: '#', "data-activates" => 'slide-out'}
-          %i.material-icons menu
+- if user_signed_in?
+  %header.offset
+    .navbar-fixed
+      %nav
+        .nav-wrapper
+          %span.nav-title
+            =@pagetitle
+          %a{"data-activates" => "slide-out", href: '#',class: 'button-collapse top-nav full hide-on-large-only'}
+            %i.material-icons menu
+      %ul.side-nav.fixed.z-depth-1#slide-out
+        =render 'layouts/header_links'

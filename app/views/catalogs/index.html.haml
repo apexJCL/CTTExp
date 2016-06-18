@@ -1,0 +1,23 @@
+- if !@catalogs.empty?
+  %table
+    %thead
+      %tr
+        %th
+        %th
+        %th
+
+    %tbody
+      - @catalogs.each do |catalog|
+        %tr
+          %td= link_to 'Show', catalog
+          %td= link_to 'Edit', edit_catalog_path(catalog)
+          %td= link_to 'Destroy', catalog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %h2.center No hay registros
+  %h1.center
+    %i.material-icons.big-icon.cyan-text class
+
+
+.fixed-action-btn.fab-style
+  %a.btn-floating.btn-large.light-green.accent-3.waves-effect.waves-light{ href: new_catalog_path }
+    %i.material-icons add

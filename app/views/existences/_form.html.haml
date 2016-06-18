@@ -1,0 +1,10 @@
+= form_for @existence do |f|
+  - if @existence.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@existence.errors.count, "error")} prohibited this existence from being saved:"
+      %ul
+        - @existence.errors.full_messages.each do |msg|
+          %li= msg
+
+  .actions
+    = f.submit 'Save'

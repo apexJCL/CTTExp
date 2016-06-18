@@ -1,4 +1,22 @@
 = form_for(@client) do |f|
+  .row
+    .col.s12.m4
+      .input-field
+        =f.label :nombre
+        =f.text_field :nombre, class: 'validate'
+    .col.s12.m4
+      .input-field
+        =f.label 'Apellido Paterno', for: :a_paterno
+        =f.text_field :a_paterno, class: 'validate'
+    .col.s12.m4
+      .input-field
+        =f.label 'Apellido Materno', for: :a_materno
+        =f.text_field :a_materno, class: 'validate'
+  .row
+    .col.s12.m6
+      .input-field
+        =f.label :rfc, 'RFC'
+        =f.text_field :rfc, class: 'validate'
   - if @client.errors.any?
     #error_explanation
       %h2
@@ -7,5 +25,7 @@
       %ul
         - @client.errors.full_messages.each do |message|
           %li= message
-  .actions
-    = f.submit
+  .actions.right
+    %a.btn.red.waves-effect.white-text{ href: clients_path}
+      Cancelar
+    = f.submit 'Guardar', class: 'btn white black-text waves-effect waves-green'

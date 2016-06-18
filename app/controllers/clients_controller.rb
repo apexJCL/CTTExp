@@ -1,24 +1,29 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update, :destroy]
 
   # GET /clients
   # GET /clients.json
   def index
+    @pagetitle = 'Clientes'
     @clients = Client.all
   end
 
   # GET /clients/1
   # GET /clients/1.json
   def show
+    @pagetitle = 'Datos Cliente'
   end
 
   # GET /clients/new
   def new
+    @pagetitle = 'Nuevo Cliente'
     @client = Client.new
   end
 
   # GET /clients/1/edit
   def edit
+    @pagetitle = 'Editar Cliente'
   end
 
   # POST /clients
@@ -28,7 +33,7 @@ class ClientsController < ApplicationController
 
     respond_to do |format|
       if @client.save
-        format.html { redirect_to @client, notice: 'Client was successfully created.' }
+        format.html { redirect_to clients_path, notice: 'Cliente guardado exitósamente' }
         format.json { render :show, status: :created, location: @client }
       else
         format.html { render :new }
@@ -56,7 +61,7 @@ class ClientsController < ApplicationController
   def destroy
     @client.destroy
     respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
+      format.html { redirect_to clients_url, notice: 'Cliente eliminado.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +74,6 @@ class ClientsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def client_params
-      params.fetch(:client, {})
+      params.require(:client).permit(:nombre, :a_paterno, :a_materno)
     end
 end
