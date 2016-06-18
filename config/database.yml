@@ -83,7 +83,3 @@ test:
 #
 production:
   <<: *default
-  database: cttexp
-  username: cttexp
-  schema: 'production'
-  password: '123'
