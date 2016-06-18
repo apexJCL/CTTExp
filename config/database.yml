@@ -23,7 +23,10 @@ default: &default
 
 development:
   <<: *default
-  database: CTTExp_development
+  database: cttexp
+  schema: 'development'
+  username: cttexp
+  password: '123'
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -80,6 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: CTTExp_production
-  username: CTTExp
-  password: <%= ENV['CTTEXP_DATABASE_PASSWORD'] %>
+  database: cttexp
+  username: cttexp
+  schema: 'production'
+  password: '123'
