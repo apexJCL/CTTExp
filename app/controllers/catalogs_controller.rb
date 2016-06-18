@@ -15,11 +15,13 @@ class CatalogsController < ApplicationController
 
   # GET /catalogs/new
   def new
+    @pagetitle = 'Nuevo Catálogo'
     @catalog = Catalog.new
   end
 
   # GET /catalogs/1/edit
   def edit
+    @pagetitle = "Edición Catálogo: #{@catalog.nombre}"
   end
 
   # POST /catalogs
@@ -70,6 +72,6 @@ class CatalogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def catalog_params
-      params.fetch(:catalog, {})
+      params.require(:catalog).permit(:nombre, :fecha, :desc, :tipo_camb)
     end
 end

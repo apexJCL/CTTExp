@@ -2,13 +2,17 @@ Rails.application.routes.draw do
   resources :existences
   resources :catalogs
   resources :articles
-  devise_for :users
+  devise_for :users, path_names: {
+      sign_up: ''
+  }
 
   root to: 'home#index'
 
+  get 'users/sign_up', to: 'home#index'
+
   as :user do
     get 'signin',     to: 'devise/sessions#new'
-    get 'signup',     to: 'devise/registrations#new'
+    get 'signup',     to: 'home#index'
     get 'logout',     to: 'devise/sessions#destroy'
     get 'dashboard',  to: 'home#dashboard'
   end

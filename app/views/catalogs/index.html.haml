@@ -2,16 +2,27 @@
   %table
     %thead
       %tr
-        %th
-        %th
-        %th
+        %th Nombre
+        %th Descripción
+        %th Fecha
+        %th Tipo Cambio
 
     %tbody
       - @catalogs.each do |catalog|
         %tr
-          %td= link_to 'Show', catalog
-          %td= link_to 'Edit', edit_catalog_path(catalog)
-          %td= link_to 'Destroy', catalog, :method => :delete, :data => { :confirm => 'Are you sure?' }
+          %td= catalog.nombre
+          %td= truncate catalog.desc, length: 30
+          %td= catalog.fecha
+          %td= catalog.tipo_camb
+          %td
+            %a{ href: catalog_path(catalog) }
+              %i.material-icons visibility
+          %td
+            %a{ href: edit_catalog_path(catalog) }
+              %i.material-icons edit
+          %td
+            %a{ href: catalog_path(catalog), :method => :delete, :data => { :confirm => 'Are you sure?' }}
+              %i.material-icons delete
 - else
   %h2.center No hay registros
   %h1.center
@@ -19,5 +30,5 @@
 
 
 .fixed-action-btn.fab-style
-  %a.btn-floating.btn-large.light-green.accent-3.waves-effect.waves-light{ href: new_catalog_path }
+  %a.btn-floating.btn-large.cyan.accent-3.waves-effect.waves-light{ href: new_catalog_path }
     %i.material-icons add

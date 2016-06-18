@@ -17,7 +17,7 @@
       %span.menu-text Dashboard
   %li
     .collapsible-header.waves-effect.waves-light
-      %i.material-icons account_balance
+      %i.material-icons store
       %span.menu-text Almacén
     .collapsible-body
       %ul
@@ -25,6 +25,10 @@
           %a.collapsible-header{ href: catalogs_path}
             %i.material-icons class
             %span.menu-text Catálogos
+        %li.waves-effect-waves-red
+          %a.collapsible-header{ href: articles_path}
+            %i.material-icons list
+            %span.menu-text Artículos
   %li
     %a.menu-link.collapsible-header.menu-text{ href: clients_path }
       %i.material-icons face

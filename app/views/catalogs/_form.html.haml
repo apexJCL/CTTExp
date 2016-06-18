@@ -5,6 +5,27 @@
       %ul
         - @catalog.errors.full_messages.each do |msg|
           %li= msg
+  .row
+    .col.s12.m6
+      .input-field
+        =f.label :nombre, 'Nombre'
+        =f.text_field :nombre
+    .col.s12.m6
+      .input-field
+        =f.label :fecha, 'Fecha'
+        =f.text_field :fecha, class: 'datepicker'
+    .col.s12
+      .input-field
+        =f.label :desc, 'Descripción'
+        =f.text_area :desc, class: 'materialize-textarea'
+    .col.s12.m6
+      .input-field
+        =f.label :tipo_camb, "Tipo Cambio"
+        =f.text_field :tipo_camb
+
 
   .actions
-    = f.submit 'Save'
+    .row.right
+      .col.s12
+        %a.btn.red.waves-effect.waves-light{ href: catalogs_path} Cancelar
+        = f.submit 'Guardar', class: 'btn-flat waves-effect waves-green'

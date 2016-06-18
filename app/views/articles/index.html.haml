@@ -1,19 +1,23 @@
-%h1 Listing articles
-
-%table
-  %thead
-    %tr
-      %th
-      %th
-      %th
-
-  %tbody
-    - @articles.each do |article|
+- if !@articles.empty?
+  %table
+    %thead
       %tr
-        %td= link_to 'Show', article
-        %td= link_to 'Edit', edit_article_path(article)
-        %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @articles.each do |article|
+        %tr
+          %td= link_to 'Show', article
+          %td= link_to 'Edit', edit_article_path(article)
+          %td= link_to 'Destroy', article, :method => :delete, :data => { :confirm => 'Are you sure?' }
+- else
+  %h2.center No hay registros
+  %h1.center
+    %i.material-icons.big-icon.teal-text list
 
-= link_to 'New Article', new_article_path
+
+.fixed-action-btn.fab-style
+  %a.btn-floating.btn-large.cyan.accent-3.waves-effect.waves-light{ href: new_article_path }
+    %i.material-icons add

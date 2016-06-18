@@ -76,3 +76,7 @@ $secondary-color: color("cyan", "base") !default;
     right: 24px;
   }
 }
+
+::-webkit-scrollbar{
+  width: 0px;
+}
