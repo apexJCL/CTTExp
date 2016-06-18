@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   resources :existences
   resources :catalogs
   resources :articles
-  devise_for :users
+  devise_for :users, path_names: {
+      sign_up: ''
+  }
 
   root to: 'home#index'
 
