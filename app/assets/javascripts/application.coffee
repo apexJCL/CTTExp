@@ -26,6 +26,8 @@ ready = ->
     edge: 'left'
     closeOnClick: true
   Waves.displayEffect()
+  # Tooltips
+  $('.tooltipped').tooltip delay: 500
 
 $(document).ready ready
 $(document).on 'turbolinks:load', ready

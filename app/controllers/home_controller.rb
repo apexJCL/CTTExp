@@ -10,6 +10,5 @@ class HomeController < ApplicationController
   end
 
   def dashboard
-    @pagetitle = 'Dashboard'
   end
 end

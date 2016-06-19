@@ -18,13 +18,13 @@
           %td= article.prcio_unit
           %td= article.moneda_art
           %td
-            %a{ href: article_path(article) }
+            %a.tooltipped{ href: article_path(article) , data: {position: 'bottom', tooltip: 'Ver'}}
               %i.material-icons visibility
           %td
-            %a{ href: edit_article_path(article) }
+            %a.tooltipped{ href: edit_article_path(article), data: {position: 'bottom', tooltip: 'Editar'} }
               %i.material-icons edit
           %td
-            %a{ href: '#' }
+            %a.tooltipped{ href: '#', data: {position: 'bottom', tooltip: 'Eliminar'} }
               %i.material-icons delete
 - else
   %h2.center No hay registros

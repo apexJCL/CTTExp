@@ -14,11 +14,14 @@
       %main.offset
         .container-fluid
           = yield
+      %footer.page-footer.offset
+        = render 'layouts/footer'
     - else
       %main
         .container
           = yield
-    = render 'layouts/footer'
+      %footer.page-footer
+        = render 'layouts/footer'
 - flash.each do |name, msg|
   - if msg.is_a?(String)
     :javascript

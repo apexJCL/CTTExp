@@ -5,6 +5,8 @@
   .row
     .col.s12
       %h6= t('.sign_in')
+      %p.grey-text usuario: alpha@beta.net
+      %p.grey-text passwd;  fHC5ZYxtJS4G
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email
@@ -20,4 +22,3 @@
         = f.label :remember_me
     .actions.row.right
       = f.submit t('.sign_in'), class: 'btn-flat waves-effect waves-green'
--#  = render "devise/shared/links"

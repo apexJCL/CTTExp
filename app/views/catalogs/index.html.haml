@@ -15,13 +15,13 @@
           %td= catalog.fecha
           %td= catalog.tipo_camb
           %td
-            %a{ href: catalog_path(catalog) }
+            %a.tooltipped{ href: catalog_path(catalog), data: {position: 'bottom', tooltip: 'Ver'} }
               %i.material-icons visibility
           %td
-            %a{ href: edit_catalog_path(catalog) }
+            %a.tooltipped{ href: edit_catalog_path(catalog), data: {position: 'bottom', tooltip: 'Editar'} }
               %i.material-icons edit
           %td
-            %a{ href: catalog_path(catalog), :method => :delete, :data => { :confirm => 'Are you sure?' }}
+            %a.tooltipped{ href: catalog_path(catalog), :method => :delete, :data => { :confirm => 'Are you sure?', position: 'bottom', tooltip: 'Eliminar' }}
               %i.material-icons delete
 - else
   %h2.center No hay registros

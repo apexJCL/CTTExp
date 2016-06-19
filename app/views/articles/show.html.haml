@@ -1,4 +1,43 @@
-.container-fluid
+.section.cyan.lighten-5
+  .row
+    .col.s12.m4.l3
+      =image_tag 'placeholder_camera.png', class: 'responsive-img center-align'
+    .col.s12.m8.l9
+      %p.flow-text
+        %strong= @article.nombre
+      .row
+        .col.s12
+          %strong Artículos disponibles:
+          =@article.arts_disp
+        .col.s12
+          %strong Precio Unitario:
+          =@article.precio_formateado
+  .row
+    .col.s12
+      %ul.tabs
+        %li.tab.col.s3
+          %a{ href: '#desc1'}
+            Descripción 1
+        %li.tab.col.s3
+          %a{ href: '#desc2'}
+            Descripción 2
+        %li.tab.col.s3
+          %a{ href: '#desc3'}
+            Descripción 3
+    .col.s12#desc1
+      .container
+        %p.flow-text= @article.desc_art
+    .col.s12#desc2
+      .container
+        %p.flow-text= @article.desc_art1
+    .col.s12#desc3
+      .container
+        %p.flow-text= @article.desc_art2
+
+  .row
+    .col.s2.offset-l10.offset-m9.offset-s8
+      %a.btn.waves-effect{ href: articles_path }
+        Volver
 
 .fixed-action-btn.fab-style
   %a.btn-floating.btn-large.red.accent-3.waves-effect.waves-light{ href: edit_article_path(@article) }

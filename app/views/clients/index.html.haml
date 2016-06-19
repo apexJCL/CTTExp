@@ -9,13 +9,13 @@
         %tr
           %td= client.id
           %td
-            %a{ href: client_path(client) }
+            %a.tooltipped{ href: client_path(client), data: {position: 'bottom', tooltip: 'Ver'} }
               =client.nombre
           %td
-            %a{ href: edit_client_path(client) }
+            %a.tooltipped{ href: edit_client_path(client), data: {position: 'bottom', tooltip: 'Editar'} }
               %i.material-icons.blue-grey-text edit
           %td
-            %a.delete-client{ href: '#', 'data-cid' => client.id, 'data-title' => client.nombre }
+            %a.tooltipped.delete-client{ href: '#', 'data-cid' => client.id, 'data-title' => client.nombre, data: {position: 'bottom', tooltip: 'Eliminar'} }
               %i.material-icons.blue-grey-text delete
 - else
   %h2.center No hay registros
