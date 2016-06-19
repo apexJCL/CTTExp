@@ -14,7 +14,7 @@
         %tr
           %td= article.id
           %td= article.nombre
-          %td= article.desc_art
+          %td= truncate sanitize(article.desc_art), length: 50
           %td= article.prcio_unit
           %td= article.moneda_art
           %td
